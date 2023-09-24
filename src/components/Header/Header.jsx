@@ -1,9 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import logo from "../../assets/Logo.png";
 
 const Header = () => {
+  const loc = useLocation();
   return (
-    <div className="absolute w-full">
+    <div className={loc.pathname === "/" ? "absolute w-full" : ""}>
       <nav className="flex flex-col md:flex-row justify-between items-center mx-5 p-3">
         <div>
           <img src={logo} alt="" />
