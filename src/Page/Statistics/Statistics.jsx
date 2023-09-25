@@ -7,14 +7,17 @@ const Statistics = () => {
     const donationsItem = JSON.parse(localStorage.getItem("donations"));
     setDonateCount(donationsItem);
   }, []);
-  const donatePai = donateCount.length;
+  let donate = 0;
+  if (donateCount) {
+    donate = donateCount.length;
+  }
 
   const data = [
-    { name: "Group A", value: (donatePai / 12) * 100 },
-    { name: "Group B", value: 100 - (donatePai / 12) * 100 },
+    { name: "Group A", value: 100 - (donate / 12) * 100 },
+    { name: "Group B", value: (donate / 12) * 100 },
   ];
 
-  const COLORS = ["#00C49F", "#FF444A"];
+  const COLORS = ["#FF444A", "#00C49F"];
   const RADIAN = Math.PI / 180;
 
   const renderCustomizedLabel = ({
@@ -37,7 +40,7 @@ const Statistics = () => {
         textAnchor={x > cx ? "start" : "end"}
         dominantBaseline="central"
       >
-        {`${(percent * 100).toFixed(0)}%`}
+        {`${(percent * 100).toFixed(1)}%`}
       </text>
     );
   };
