@@ -2,9 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
 import Home from "../Page/Home/Home";
 import Donation from "../Page/Donation/Donation";
-import Statistics from "../Page/Statistics/Statistics";
 import Error from "../Page/Error/Error";
 import Cart from "../Page/Cart/Cart";
+import Statistics from "../Page/Statistics/Statistics";
 
 const router = createBrowserRouter([
   {
