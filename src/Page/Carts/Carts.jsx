@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import AllCart from "../AllCart/AllCart";
+import PropTypes from "prop-types";
 
 const Carts = ({ showCarts, inputValue, isTrueBtn }) => {
   const lowerInputValue = inputValue.toLowerCase();
@@ -27,5 +28,9 @@ const Carts = ({ showCarts, inputValue, isTrueBtn }) => {
     </div>
   );
 };
-
+Carts.propTypes = {
+  showCarts: PropTypes.array.isRequired,
+  inputValue: PropTypes.string.isRequired,
+  isTrueBtn: PropTypes.bool.isRequired,
+};
 export default Carts;

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 const AllCart = ({ cart }) => {
   const { card_img, category, title, style, id } = cart || {};
 
-  console.log(cart);
   return (
     <Link to={`/cart/${id}`}>
       <div className="rounded-md">

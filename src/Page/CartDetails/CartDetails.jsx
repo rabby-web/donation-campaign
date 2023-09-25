@@ -1,4 +1,5 @@
 import swal from "sweetalert";
+import PropTypes from "prop-types";
 
 const CartDetails = ({ donation }) => {
   const { card_img, price, description, category, style, id } = donation || {};
@@ -44,5 +45,7 @@ const CartDetails = ({ donation }) => {
     </div>
   );
 };
-
+CartDetails.propTypes = {
+  donation: PropTypes.object.isRequired,
+};
 export default CartDetails;
