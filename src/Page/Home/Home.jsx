@@ -1,26 +1,24 @@
 import Banner from "../Banner/Banner";
-import AllCart from "../AllCart/AllCart";
-import { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
+import Carts from "../Carts/Carts";
+import { useState } from "react";
 
 const Home = () => {
-  // const donations = useLoaderData();
-  const [donations, setDonations] = useState([]);
-  useEffect(() => {
-    fetch("donation.json")
-      .then((res) => res.json())
-      .then((data) => setDonations(data));
-  }, []);
+  const [inputValue, setInputValue] = useState("");
+  const [isTrueBtn, setIsTrueBtn] = useState(false);
+  const showCarts = useLoaderData();
   return (
     <div>
       <div>
-        <Banner></Banner>
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 m-4">
-            {donations?.map((cart) => (
-              <AllCart key={cart.id} cart={cart}></AllCart>
-            ))}
-          </div>
-        </div>
+        <Banner
+          setInputValue={setInputValue}
+          setIsTrueBtn={setIsTrueBtn}
+        ></Banner>
+        <Carts
+          isTrueBtn={isTrueBtn}
+          inputValue={inputValue}
+          showCarts={showCarts}
+        ></Carts>
       </div>
     </div>
   );

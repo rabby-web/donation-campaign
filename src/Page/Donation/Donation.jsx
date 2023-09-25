@@ -27,7 +27,7 @@ const Donation = () => {
               ></DonationDetails>
             ))
           : donations
-              .slice(0, 2)
+              .slice(0, 4)
               .map((donation) => (
                 <DonationDetails
                   key={donation.id}

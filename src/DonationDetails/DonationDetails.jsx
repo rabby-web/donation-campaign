@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 const DonationDetails = ({ donation }) => {
   const { card_img, price, category, style, title, id } = donation || {};
   return (
-    <div>
+    <div className="m-2">
       <div
         style={{ backgroundColor: style?.card_bg }}
-        className="relative flex w-full max-w-[48rem] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
+        className="relative flex w-full  max-w-[48rem] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
       >
         <div className="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
           <img
@@ -15,7 +15,7 @@ const DonationDetails = ({ donation }) => {
             className="h-full w-full object-cover"
           />
         </div>
-        <div className="p-6">
+        <div className="p-2 md:p-6">
           <button
             style={{ backgroundColor: style?.btn_bg, color: style?.t_b_color }}
             className="mb-4 block font-sans text-base font-semibold leading-relaxed tracking-normal py-2 px-4 rounded antialiased"
@@ -27,7 +27,7 @@ const DonationDetails = ({ donation }) => {
           </h4>
           <p
             style={{ color: style?.t_b_color }}
-            className="mb-8 block font-sans text-base font-semibold leading-relaxed"
+            className="mb-4 block font-sans text-base font-semibold leading-relaxed"
           >
             ${price}
           </p>
