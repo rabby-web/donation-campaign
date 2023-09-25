@@ -37,8 +37,8 @@ const CartDetails = ({ donation }) => {
         </div>
       </div>
 
-      <div>
-        <h1 className="text-3xl font-semibold mt-3">{category}</h1>
+      <div className="px-3">
+        <h1 className="text-3xl font-semibold  mt-3">{category}</h1>
         <p>{description}</p>
       </div>
     </div>

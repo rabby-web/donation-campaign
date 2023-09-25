@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const DonationDetails = ({ donation }) => {
-  const { card_img, price, category, style, title } = donation || {};
+  const { card_img, price, category, style, title, id } = donation || {};
   return (
     <div>
       <div
@@ -31,7 +31,7 @@ const DonationDetails = ({ donation }) => {
           >
             ${price}
           </p>
-          <Link>
+          <Link to={`/cart/${id}`}>
             <a className="inline-block" href="#">
               <button
                 style={{ backgroundColor: style?.t_b_color }}
