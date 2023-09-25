@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { PieChart, Pie, Cell } from "recharts";
+import pic1 from "../../assets/Rectangle1.png";
+import pic2 from "../../assets/Rectangle2.png";
+
 const Statistics = () => {
   const [donateCount, setDonateCount] = useState([]);
 
@@ -69,19 +72,11 @@ const Statistics = () => {
       <div className="w-full text-center flex justify-center flex-col md:flex-row md:gap-10">
         <div className="flex gap-2 items-center justify-center">
           <span className="font-semibold">Your Donation</span>
-          <img
-            className="h-3 mt-1"
-            src="../../../public/Rectangle1.png"
-            alt=""
-          />
+          <img className="h-3 mt-1" src={pic1} alt="" />
         </div>
         <div className="flex gap-2 items-center justify-center">
           <span className="font-semibold">Total Donation</span>
-          <img
-            className="h-3 mt-1"
-            src="../../../public/Rectangle2.png"
-            alt=""
-          />
+          <img className="h-3 mt-1" src={pic2} alt="" />
         </div>
       </div>
     </div>
