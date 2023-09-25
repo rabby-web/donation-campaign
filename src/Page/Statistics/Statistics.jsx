@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react";
 import { PieChart, Pie, Cell } from "recharts";
 const Statistics = () => {
-  const [donateCount, setDonateCount] = useState(0);
+  const [donateCount, setDonateCount] = useState([]);
 
   useEffect(() => {
     const donationsItem = JSON.parse(localStorage.getItem("donations"));
     setDonateCount(donationsItem);
   }, []);
+  const donatePai = donateCount.length;
 
   const data = [
-    { name: "Group A", value: 12 },
-    { name: "Group B", value: donateCount.length },
+    { name: "Group A", value: (donatePai / 12) * 100 },
+    { name: "Group B", value: 100 - (donatePai / 12) * 100 },
   ];
 
-  const COLORS = ["#FF444A", "#00C49F"];
+  const COLORS = ["#00C49F", "#FF444A"];
   const RADIAN = Math.PI / 180;
 
   const renderCustomizedLabel = ({

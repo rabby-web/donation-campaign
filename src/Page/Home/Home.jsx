@@ -1,12 +1,18 @@
 import Banner from "../Banner/Banner";
-import { useLoaderData } from "react-router-dom";
 import Carts from "../Carts/Carts";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Home = () => {
   const [inputValue, setInputValue] = useState("");
   const [isTrueBtn, setIsTrueBtn] = useState(false);
-  const showCarts = useLoaderData();
+  const [showCarts, setShowCarts] = useState([]);
+  // const showCarts = useLoaderData();
+  useEffect(() => {
+    fetch("donation.json")
+      .then((res) => res.json())
+      .then((data) => setShowCarts(data));
+  }, []);
+
   return (
     <div>
       <div>

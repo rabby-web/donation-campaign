@@ -6,8 +6,9 @@ const Cart = () => {
   const [donation, setDonation] = useState([]);
   const { id } = useParams();
   const donations = useLoaderData();
+
   useEffect(() => {
-    const findDonation = donations?.find((donate) => donate.id === id);
+    const findDonation = donations?.find((donation) => donation.id === id);
     setDonation(findDonation);
   }, [id, donations]);
   return (
