@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { PieChart, Pie, Cell } from "recharts";
-import pic1 from "../../assets/Rectangle1.png";
-import pic2 from "../../assets/Rectangle2.png";
 
 const Statistics = () => {
   const [donateCount, setDonateCount] = useState([]);
