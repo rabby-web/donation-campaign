@@ -72,11 +72,19 @@ const Statistics = () => {
       <div className="w-full text-center flex justify-center flex-col md:flex-row md:gap-10">
         <div className="flex gap-2 items-center justify-center">
           <span className="font-semibold">Your Donation</span>
-          <img className="h-3 mt-1" src={pic1} alt="" />
+          <img
+            className="h-3 mt-1"
+            src="https://i.ibb.co/cCRLBzv/rectangle1.png"
+            alt=""
+          />
         </div>
         <div className="flex gap-2 items-center justify-center">
           <span className="font-semibold">Total Donation</span>
-          <img className="h-3 mt-1" src={pic2} alt="" />
+          <img
+            className="h-3 mt-1"
+            src="https://i.ibb.co/cLWjGB4/rectangle2.png"
+            alt=""
+          />
         </div>
       </div>
     </div>
