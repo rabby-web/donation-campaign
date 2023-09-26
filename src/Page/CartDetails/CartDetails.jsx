@@ -2,6 +2,7 @@ import swal from "sweetalert";
 import PropTypes from "prop-types";
 
 const CartDetails = ({ donation }) => {
+  console.log(typeof donation);
   const { card_img, price, description, category, style, id } = donation || {};
   console.log(donation);
   const handleAddToDonate = () => {

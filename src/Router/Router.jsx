@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/cart/:id",
         element: <Cart></Cart>,
-        loader: () => fetch("/donation.json"),
+        loader: () => fetch("/data.json"),
       },
     ],
   },

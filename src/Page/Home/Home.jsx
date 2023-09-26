@@ -8,7 +8,7 @@ const Home = () => {
   const [showCarts, setShowCarts] = useState([]);
   // const showCarts = useLoaderData();
   useEffect(() => {
-    fetch("donation.json")
+    fetch("./data.json")
       .then((res) => res.json())
       .then((data) => setShowCarts(data));
   }, []);
