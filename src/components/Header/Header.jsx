@@ -1,7 +1,20 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Header = () => {
+  const { user, logOutUser } = useContext(AuthContext);
   const loc = useLocation();
+  const handleLogOut = () => {
+    logOutUser()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   return (
     <div className={loc.pathname === "/" ? "absolute w-full" : ""}>
       <nav className="flex flex-col md:flex-row justify-between items-center mx-5 p-3">
@@ -60,9 +73,23 @@ const Header = () => {
             </NavLink>
           </li>
         </ul>
-        <button className="btn bg-[#F9A51A] text-white font-semibold text-lg hover:bg-orange-500">
-          Logout
-        </button>
+        {user ? (
+          <>
+            <button
+              onClick={handleLogOut}
+              className="btn text-white bg-[#F9A51A] hover:bg-[#F9A51A] text-lg font-semibold"
+            >
+              Sign Out
+            </button>
+          </>
+        ) : (
+          <Link
+            className="btn text-white bg-[#F9A51A] hover:bg-[#F9A51A] text-lg font-semibold"
+            to="/login"
+          >
+            Login
+          </Link>
+        )}
       </nav>
     </div>
   );
