@@ -1,18 +1,37 @@
 import { Link } from "react-router-dom";
 import Social from "../Social/Social";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const photo = e.target.photo.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(name, photo, email, password);
+    // create user
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   return (
     <div className="container mx-auto ">
       <div className=" my-20">
         <div className="border p-5 w-full max-w-sm mx-auto space-y-6">
           <h2 className="text-2xl font-bold">Login</h2>
-          <form className="space-y-4">
+          <form onSubmit={handleRegister} className="space-y-4">
             <div>
               <input
                 type="text"
                 name="name"
-                id="email"
+                id=""
                 className="  border-b-2  border-gray-300 text-black text-sm  focus:border-b-2 focus:outline-none focus:border-black block w-full p-2.5  placeholder:text-lg placeholder:font-semibold dark:placeholder-black"
                 placeholder="Name"
                 required
@@ -20,7 +39,7 @@ const Register = () => {
               <input
                 type="text"
                 name="photo"
-                id="email"
+                id=""
                 className="  border-b-2  border-gray-300 text-black text-sm  focus:border-b-2 focus:outline-none focus:border-black block w-full p-2.5  placeholder:text-lg placeholder:font-semibold dark:placeholder-black"
                 placeholder="Photo URL"
                 required
@@ -36,7 +55,7 @@ const Register = () => {
               <input
                 type="password"
                 name="password"
-                id="email"
+                id=""
                 className="  border-b-2  border-gray-300 text-black text-sm  focus:border-b-2 focus:outline-none focus:border-black block w-full p-2.5 dark:placeholder-black placeholder:text-lg placeholder:font-semibold"
                 placeholder="Password"
                 required

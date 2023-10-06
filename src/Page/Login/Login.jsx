@@ -1,13 +1,30 @@
 import { Link } from "react-router-dom";
 import Social from "../Social/Social";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
+  const { loggedUser } = useContext(AuthContext);
+  const handleLogIn = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
+    // create user
+    loggedUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   return (
     <div className="container mx-auto ">
       <div className=" my-20">
         <div className="border p-5 w-full max-w-sm mx-auto space-y-6">
           <h2 className="text-2xl font-bold">Login</h2>
-          <form className="space-y-4">
+          <form onSubmit={handleLogIn} className="space-y-4">
             <div>
               <input
                 type="email"
@@ -20,7 +37,7 @@ const Login = () => {
               <input
                 type="password"
                 name="password"
-                id="email"
+                id="password"
                 className="  border-b-2  border-gray-300 text-black text-sm  focus:border-b-2 focus:outline-none focus:border-black block w-full p-2.5 dark:placeholder-black placeholder:text-lg placeholder:font-semibold"
                 placeholder="Password"
                 required

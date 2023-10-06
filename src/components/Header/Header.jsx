@@ -60,6 +60,9 @@ const Header = () => {
             </NavLink>
           </li>
         </ul>
+        <button className="btn bg-[#F9A51A] text-white font-semibold text-lg hover:bg-orange-500">
+          Logout
+        </button>
       </nav>
     </div>
   );
