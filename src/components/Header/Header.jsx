@@ -39,6 +39,26 @@ const Header = () => {
               Statistics
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/login"
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-[#FF444A]" : ""
+              }
+            >
+              Login
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/register"
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-[#FF444A]" : ""
+              }
+            >
+              Register
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </div>
